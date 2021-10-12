@@ -71,7 +71,7 @@ int findEmployeeById(Employee* list, int len, int id){
 
 	if(list != NULL && len > 0){
 		for(int i = 0; i < len; i++){
-			if(list[i].id == id && list[i].isEmpty == FALSE){
+			if(list[i].isEmpty == FALSE && list[i].id == id){
 				Return = i;
 				break;
 			}
@@ -87,13 +87,10 @@ int removeEmployee(Employee* list, int len, int id){
 	int index;
 
 	if(list != NULL && len > 0){
-		for(int i = 0; i < len; i++){
-			index = findEmployeeById(list, len, id);
-			if(index != -1){
-				Return = 0;
-				list[index].isEmpty = TRUE;
-				break;
-			}
+		index = findEmployeeById(list, len, id);
+		if(index != -1){
+			Return = 0;
+			list[index].isEmpty = TRUE;
 		}
 	}
 
