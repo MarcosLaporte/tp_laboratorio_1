@@ -25,20 +25,20 @@ Employee getEmployee(Employee* list, int length){
 	Employee worker;
 
 	getString("¬ Ingrese el nombre del empleado: ", worker.name, 51);
-	while(checkAlphabetAndSpace(worker.name) == 0){
+	while(checkAlphabetAndSpace(worker.name) == -1){
 		getString("¬ ERROR! Ingrese un nombre SOLO con letras (sin tildes ni Ñ): ", worker.name, 51);
 	}
 	formatName(worker.name);
 
 	getString("¬ Ingrese el apellido del empleado: ", worker.lastName, 51);
-	while(checkAlphabetAndSpace(worker.lastName) == 0){
+	while(checkAlphabetAndSpace(worker.lastName) == -1){
 		getString("¬ ERROR! Ingrese un apellido SOLO con letras (sin tildes ni Ñ): ", worker.lastName, 51);
 	}
 	formatName(worker.lastName);
 
-	worker.salary = getFloat("¬ Ingrese el salario del empleado: ");
+	getFinalFloat(&worker.salary, "¬ Ingrese el salario del empleado: ", "ERROR. El dato ingresado no es válido.\nIngrese un número entre 0 y 999.999: ", 0, 999999);
 
-	worker.sector = getInt("¬ Ingrese el sector del empleado: ");
+	getFinalInt(&worker.sector, "¬ Ingrese el sector del empleado: ", "ERROR. El dato ingresado no es válido.\nIngrese un entero entre 1 y 6: ", 1, 6);
 
 	return worker;
 }

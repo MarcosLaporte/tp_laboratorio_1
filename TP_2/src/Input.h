@@ -115,8 +115,65 @@ void formatName(char input[]);
 /// @brief Revisa que la cadena
 ///
 /// @param input - La cadena de caracteres a revisar.
-/// @return int - Retorna 1 si está todo bien, o 0 si alguno de los caracteres
-/// 			no cumple con la función isalpha o isspace.
+/// @return int - Retorna 0 si está todo bien, o -1 si alguno de los caracteres
+/// 			no cumple con las funciones isalpha y isspace.
 int checkAlphabetAndSpace(char input[]);
+
+/// @brief Pide una cadena de caracteres.
+///
+/// @param input - El array donde se va a guardar la cadena.
+/// @param length - El tamaño máximo de la cadena.
+/// @return int - Retorna -1 si la cadena supera el parámetro 'length', o 0 si está todo bien.
+int myGets(char input[], int length);
+
+/// @brief Revisa que todos los caracteres de la cadena sea numérica.
+///
+/// @param input - La cadena de caracteres a revisar.
+/// @param length - El tamaño máximo de la cadena.
+/// @return int - Retorna -1 si algún caracter de la cadena no es numérico (con la
+///				excepción de '-' o '+' como primer caracter), o 0 si está todo bien.
+int isAnInt(char input[], int length);
+
+/// @brief Verifica el retorno de las funciones myGets() e isAnInt() para pasar el valor numérico de la cadena.
+///
+/// @param *refResult - Puntero donde se va a guardar el número convertido a entero.
+/// @return int - Retorna -1 si alguna de las dos funciones que llama dan error, o 0 si la cadena es válida.
+int getAnInt(int* refResult);
+
+/// @brief Utiliza myGets(), isAnInt() y getAnInt() para pedir un entero y validarlo como tal.
+///
+/// @param *refResult - Puntero donde se va a guardar el número convertido a entero.
+/// @param message - El mensaje a mostrar al momento de pedir el entero.
+/// @param errorMessage - El mensaje a mostrar en pantalla si el entero ingresado no entra en los parámetros dados.
+/// @param min - El mínimo que puede ser el entero.
+/// @param max - El máximo que puede ser el entero.
+/// @return int - Retorna -1 si 'refResult', 'message' o 'errorMessage' son nulos o si 'min' es mayor que 'max',
+///				o 0 si está todo bien.
+int getFinalInt(int* refResult, char message[], char errorMessage[], int min, int max);
+
+/// @brief Revisa que todos los caracteres de la cadena sea numérica.
+///
+/// @param input - La cadena de caracteres a revisar.
+/// @param length - El tamaño máximo de la cadena.
+/// @return int - Retorna -1 si algún caracter de la cadena no es numérico (con la
+///				excepción de '-' o '+' como primer caracter y un '.'), o 0 si está todo bien.
+int isAFloat(char input[], int length);
+
+/// @brief Verifica el retorno de las funciones myGets() e isAFloat() para pasar el valor numérico de la cadena.
+///
+/// @param *refResult - Puntero donde se va a guardar el número convertido a flotante.
+/// @return int - Retorna -1 si alguna de las dos funciones que llama dan error, o 0 si la cadena es válida.
+int getAFloat(float* refResult);
+
+/// @brief Utiliza myGets(), isAnInt() y getAnInt() para pedir un entero y validarlo como tal.
+///
+/// @param *refResult - Puntero donde se va a guardar el número convertido a flotante.
+/// @param message - El mensaje a mostrar al momento de pedir el flotante.
+/// @param errorMessage - El mensaje a mostrar en pantalla si el flotante ingresado no entra en los parámetros dados.
+/// @param min - El mínimo que puede ser el flotante.
+/// @param max - El máximo que puede ser el flotante.
+/// @return int - Retorna -1 si 'refResult', 'message' o 'errorMessage' son nulos o si 'min' es mayor que 'max',
+///				o 0 si está todo bien.
+int getFinalFloat(float* refResult, char message[], char errorMessage[], int min, int max);
 
 #endif /* INPUT_H_ */
