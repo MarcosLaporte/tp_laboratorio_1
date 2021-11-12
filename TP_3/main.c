@@ -79,18 +79,16 @@ int main()
             	break;
             case 4: //Modificar
             	if(!ll_isEmpty(arrayEmployees)){
-            		//REVISAAAR----------------------------------------------------
             		r = controller_editEmployee(arrayEmployees);
-					if(!r){
-						printf("Ha cancelado la acción.\n");
+					if(r > 0){
+						printf("Se ha modificado el empleado!\n");
 					}else{
-						if(r){
-							printf("Se ha modificado el empleado!\n");
-						}else{
+						if(!r){
 							printf("ERROR! No existe un empleado con ese ID.\n");
+						}else{
+							printf("Ha cancelado la acción.\n");
 						}
 					}
-            		//REVISAAAR----------------------------------------------------
             	}else{
             		printf("ERROR! No hay empleados cargados.\n");
             	}

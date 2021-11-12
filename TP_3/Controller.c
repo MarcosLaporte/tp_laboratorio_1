@@ -65,7 +65,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee, char* path)
 
 	if(pArrayListEmployee != NULL && path != NULL){
 		controller_readId(path, &id);
-		miEmpleado = employee_newUsuario(id);
+		miEmpleado = employee_newFromUser(id);
 		employee_printEmpleado(miEmpleado);
 		if(getConfirmation("Escriba 'SI' para confirmar: ", "SI", "NO", 3, 3) == 1){
 			ll_add(pArrayListEmployee, miEmpleado);
@@ -272,6 +272,11 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+/// @brief Guarda el id pasado por parámetro en el archivo con la ruta pasada por parámetro.
+///
+/// @param path - Ruta del archivo.
+/// @param id - ID a guardar en el archivo.
+/// @return int - Retorna 0 si el puntero es inválido, o 1 si está todo bien.
 int controller_saveId(char* path, int id){
 	int retorno;
 	FILE* pFile;
@@ -287,6 +292,11 @@ int controller_saveId(char* path, int id){
 	return retorno;
 }
 
+/// @brief Toma el id guardado en el archivo con la ruta pasada por parámetro, y lo pasa por el puntero.
+///
+/// @param path - Ruta del archivo.
+/// @param id - Puntero para guardar el ID leido.
+/// @return int - Retorna 0 si el puntero es inválido, o 1 si está todo bien.
 int controller_readId(char* path, int* id){
 	int retorno;
 	FILE* pFile;
@@ -302,6 +312,11 @@ int controller_readId(char* path, int* id){
 	return retorno;
 }
 
+/// @brief Busca por id la posición de LL ern la que se encuentra el empleado.
+///
+/// @param pArrayListEmployee - Puntero al array LL de empleados.
+/// @param id - El ID a buscar.
+/// @return int - Retorna la posición del empleado si la encuentra, o -1 si no.
 int controller_findEmployeeById(LinkedList* pArrayListEmployee, int id){
 	int retorno;
 	int auxId;
@@ -313,6 +328,7 @@ int controller_findEmployeeById(LinkedList* pArrayListEmployee, int id){
 		employee_getId(miEmpleado, &auxId);
 		if(auxId == id){
 			retorno = ll_indexOf(pArrayListEmployee, miEmpleado);
+			break;
 		}
 	}
 
