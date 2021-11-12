@@ -11,7 +11,7 @@ Employee* employee_new(){
 	return miEmpleado;
 }
 
-/// @brief Llama a employee_new() y guarda los datos pasados por par·metro (ya convertidos) al empleado del puntero.
+/// @brief Llama a employee_new() y guarda los datos pasados por par√°metro (ya convertidos) al empleado del puntero.
 ///
 /// @param idStr - Caracteres del ID a convertir.
 /// @param nombreStr - Cadena de caracteres del nombre.
@@ -38,8 +38,8 @@ Employee* employee_newParametros(char* idStr, char* nombreStr, char* horasTrabaj
 
 /// @brief Crea un empleado con los datos pasados por teclado.
 ///
-/// @param id
-/// @return
+/// @param id - El id a asignar al empleado.
+/// @return Employee* - Retorna el puntero al empleado creado.
 Employee* employee_newFromUser(int id){
 	Employee* miEmpleado;
 	char auxNombre[MAX_CHAR];
@@ -47,9 +47,9 @@ Employee* employee_newFromUser(int id){
 	int auxSueldo;
 
 	miEmpleado = employee_new();
-	if(myGetName(auxNombre, "Ingrese el nombre del empleado: ", "ERROR! Ingrese un nombre v·lido: ", MAX_CHAR) &&
-			getInt(&auxHoras, "Ingrese las horas trabajadas: ", "ERROR! Ingrese horas v·lidas: ", 0, 300) &&
-			getInt(&auxSueldo, "Ingrese el sueldo del empleado: ", "ERROR! Ingrese sueldo v·lido: ", 1, 250000)){
+	if(myGetName(auxNombre, "Ingrese el nombre del empleado: ", "ERROR! Ingrese un nombre v√°lido: ", MAX_CHAR) &&
+			getInt(&auxHoras, "Ingrese las horas trabajadas: ", "ERROR! Ingrese horas v√°lidas: ", 0, 300) &&
+			getInt(&auxSueldo, "Ingrese el sueldo del empleado: ", "ERROR! Ingrese sueldo v√°lido: ", 1, 250000)){
 		employee_setId(miEmpleado, id);
 		employee_setNombre(miEmpleado, auxNombre);
 		employee_setHorasTrabajadas(miEmpleado, auxHoras);
@@ -59,19 +59,19 @@ Employee* employee_newFromUser(int id){
 	return miEmpleado;
 }
 
-/// @brief Utiliza la funciÛn free() para liberar el espacio donde se encuentra ese empleado.
+/// @brief Utiliza la funci√≥n free() para liberar el espacio donde se encuentra ese empleado.
 ///
 /// @param this - Puntero al empleado a eliminar.
 void employee_delete(Employee* this){
 	free(this);
-	//Mucho cÛdigo
+	//Mucho c√≥digo
 }
 
-/// @brief Asigna el valor 'id' pasado por par·metro al campo id en la estructura Employee.
+/// @brief Asigna el valor 'id' pasado por par√°metro al campo id en la estructura Employee.
 ///
 /// @param this - Puntero al empleado.
 /// @param id - ID a asignar.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_setId(Employee* this, int id){
 	int retorno;
 	retorno = 0;
@@ -84,11 +84,11 @@ int employee_setId(Employee* this, int id){
 	return retorno;
 }
 
-/// @brief Toma el valor guardado en el campo id de la estructura Employee y lo guarda en el puntero 'id' del par·metro.
+/// @brief Toma el valor guardado en el campo id de la estructura Employee y lo guarda en el puntero 'id' del par√°metro.
 ///
 /// @param this - Puntero al empleado.
-/// @param id - Puntero a dÛnde guardar el valor.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @param id - Puntero a d√≥nde guardar el valor.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_getId(Employee* this, int* id){
 	int retorno;
 	retorno = 0;
@@ -101,11 +101,11 @@ int employee_getId(Employee* this, int* id){
 	return retorno;
 }
 
-/// @brief Asigna la cadena 'nombre' pasada por par·metro al campo nombre en la estructura Employee.
+/// @brief Asigna la cadena 'nombre' pasada por par√°metro al campo nombre en la estructura Employee.
 ///
 /// @param this - Puntero al empleado.
 /// @param nombre - Cadena de caracteres a asignar.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_setNombre(Employee* this, char* nombre){
 	int retorno;
 	retorno = 0;
@@ -118,11 +118,11 @@ int employee_setNombre(Employee* this, char* nombre){
 	return retorno;
 }
 
-/// @brief Toma la cadena guardada en el campo nombre de la estructura Employee y la guarda en el puntero 'nombre' del par·metro.
+/// @brief Toma la cadena guardada en el campo nombre de la estructura Employee y la guarda en el puntero 'nombre' del par√°metro.
 ///
 /// @param this - Puntero al empleado.
-/// @param nombre - Puntero a dÛnde guardar la cadena.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @param nombre - Puntero a d√≥nde guardar la cadena.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_getNombre(Employee* this, char* nombre){
 	int retorno;
 	retorno = 0;
@@ -135,11 +135,11 @@ int employee_getNombre(Employee* this, char* nombre){
 	return retorno;
 }
 
-/// @brief Asigna el valor 'horasTrabajadas' pasado por par·metro al campo horasTrabajadas en la estructura Employee.
+/// @brief Asigna el valor 'horasTrabajadas' pasado por par√°metro al campo horasTrabajadas en la estructura Employee.
 ///
 /// @param this - Puntero al empleado.
 /// @param horasTrabajadas - Horas a asignar.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_setHorasTrabajadas(Employee* this, int horasTrabajadas){
 	int retorno;
 	retorno = 0;
@@ -152,11 +152,11 @@ int employee_setHorasTrabajadas(Employee* this, int horasTrabajadas){
 	return retorno;
 }
 
-/// @brief Toma el valor guardado en el campo horasTrabajadas de la estructura Employee y lo guarda en el puntero 'horasTrabajadas' del par·metro.
+/// @brief Toma el valor guardado en el campo horasTrabajadas de la estructura Employee y lo guarda en el puntero 'horasTrabajadas' del par√°metro.
 ///
 /// @param this - Puntero al empleado.
-/// @param horasTrabajadas - Puntero a dÛnde guardar el valor.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @param horasTrabajadas - Puntero a d√≥nde guardar el valor.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_getHorasTrabajadas(Employee* this, int* horasTrabajadas){
 	int retorno;
 	retorno = 0;
@@ -169,11 +169,11 @@ int employee_getHorasTrabajadas(Employee* this, int* horasTrabajadas){
 	return retorno;
 }
 
-/// @brief Asigna el valor 'sueldo' pasado por par·metro al campo sueldo en la estructura Employee.
+/// @brief Asigna el valor 'sueldo' pasado por par√°metro al campo sueldo en la estructura Employee.
 ///
 /// @param this - Puntero al empleado.
 /// @param sueldo - Sueldo a asignar.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_setSueldo(Employee* this, int sueldo){
 	int retorno;
 	retorno = 0;
@@ -186,11 +186,11 @@ int employee_setSueldo(Employee* this, int sueldo){
 	return retorno;
 }
 
-/// @brief Toma el valor guardado en el campo sueldo de la estructura Employee y lo guarda en el puntero 'sueldo' del par·metro.
+/// @brief Toma el valor guardado en el campo sueldo de la estructura Employee y lo guarda en el puntero 'sueldo' del par√°metro.
 ///
 /// @param this - Puntero al empleado.
-/// @param sueldo - Puntero a dÛnde guardar el valor.
-/// @return int - Retorna 0 si el puntero es nulo, o 1 si est· todo bien.
+/// @param sueldo - Puntero a d√≥nde guardar el valor.
+/// @return int - Retorna 0 si el puntero es nulo, o 1 si est√° todo bien.
 int employee_getSueldo(Employee* this, int* sueldo){
 	int retorno;
 	retorno = 0;
@@ -203,7 +203,7 @@ int employee_getSueldo(Employee* this, int* sueldo){
 	return retorno;
 }
 
-/// @brief Imprime el empleado pasado por par·metro.
+/// @brief Imprime el empleado pasado por par√°metro.
 ///
 /// @param this - El punteor del empleado a imprimir.
 /// @return Retorna 0 si el puntero es nulo o 1 si pudo imprimir.
@@ -228,7 +228,7 @@ int employee_printEmpleado(Employee* this){
 	return retorno;
 }
 
-/// @brief Compara los ids conseguidos a travÈs de employee_get() de los empleados pasados por par·metro.
+/// @brief Compara los ids conseguidos a trav√©s de employee_get() de los empleados pasados por par√°metro.
 ///
 /// @param this - Puntero a void donde se pasa el empleado.
 /// @param that - Puntero a void donde se pasa el empleado.
@@ -260,7 +260,7 @@ int employee_compareId(void* this, void* that){
 	return retorno;
 }
 
-/// @brief Compara los nombres conseguidos a travÈs de employee_get() de los empleados pasados por par·metro.
+/// @brief Compara los nombres conseguidos a trav√©s de employee_get() de los empleados pasados por par√°metro.
 ///
 /// @param this - Puntero a void donde se pasa el empleado.
 /// @param that - Puntero a void donde se pasa el empleado.
@@ -285,7 +285,7 @@ int employee_compareNombre(void* this, void* that){
 	return retorno;
 }
 
-/// @brief Compara las horas trabajadas conseguidas a travÈs de employee_get() de los empleados pasados por par·metro.
+/// @brief Compara las horas trabajadas conseguidas a trav√©s de employee_get() de los empleados pasados por par√°metro.
 ///
 /// @param this - Puntero a void donde se pasa el empleado.
 /// @param that - Puntero a void donde se pasa el empleado.
@@ -317,7 +317,7 @@ int employee_compareHoras(void* this, void* that){
 	return retorno;
 }
 
-/// @brief Compara los sueldos conseguidos a travÈs de employee_get() de los empleados pasados por par·metro.
+/// @brief Compara los sueldos conseguidos a trav√©s de employee_get() de los empleados pasados por par√°metro.
 ///
 /// @param this - Puntero a void donde se pasa el empleado.
 /// @param that - Puntero a void donde se pasa el empleado.
